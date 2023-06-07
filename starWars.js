@@ -1,14 +1,14 @@
 
 function atualizarTable(data, menu) {
-  const CorpoTable = document.querySelector('#data-table tbody');
+  const CorpoTabela = document.querySelector('#data-table tbody');
   const tableHeader = document.querySelector('#data-table thead tr');
   
  
-  CorpoTable.innerHTML = '';
+  CorpoTabela.innerHTML = '';
   tableHeader.innerHTML = '';
   
   if (data.length === 0) {
-    const row = CorpoTable.insertRow();
+    const row = CorpoTabela.insertRow();
     const cell = row.insertCell();
     cell.textContent = 'Nenhum resultado encontrado.';
   } else {
@@ -19,7 +19,7 @@ function atualizarTable(data, menu) {
     });
     
     data.forEach(item => {
-      const row = CorpoTable.insertRow();
+      const row = CorpoTabela.insertRow();
       
       menu.forEach(header => {
         const cell = row.insertCell();
