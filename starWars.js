@@ -51,8 +51,8 @@ function mostrarDetalhes(item) {
 
   $('#details-modal').modal('show'); 
 }
-
-function buscarApi(url, headers) {
+//mostrar menu correspondente
+function buscarNaApi(url, headers) {
   fetch(url)
     .then(response => response.json())
     .then(data => {
@@ -66,35 +66,35 @@ function buscarApi(url, headers) {
 document.addEventListener('DOMContentLoaded', function() {
   const url = 'https://swapi.dev/api/films/';
   const headers = ['Title', 'Director', 'Producer'];
-  buscarApi(url, headers);
+  buscarNaApi(url, headers);
 });
 
 document.getElementById('people-link').addEventListener('click', function() {
   const url = 'https://swapi.dev/api/people/';
   const headers = ['Name', 'Height', 'Mass'];
-  buscarApi(url, headers);
+  buscarNaApi(url, headers);
 });
 
 document.getElementById('planets-link').addEventListener('click', function() {
   const url = 'https://swapi.dev/api/planets/';
   const headers = ['Name', 'Population', 'Gravity'];
-  buscarApi(url, headers);
+  buscarNaApi(url, headers);
 });
 
 document.getElementById('species-link').addEventListener('click', function() {
   const url = 'https://swapi.dev/api/species/';
   const headers = ['Name', 'Classification', 'Designation'];
-  buscarApi(url, headers);
+  buscarNaApi(url, headers);
 });
 
 document.getElementById('starships-link').addEventListener('click', function() {
   const url = 'https://swapi.dev/api/starships/';
   const headers = ['Name', 'Model', 'Passengers'];
-  buscarApi(url, headers);
+  buscarNaApi(url, headers);
 });
 
 document.getElementById('vehicles-link').addEventListener('click', function() {
   const url = 'https://swapi.dev/api/vehicles/';
   const headers = ['Name', 'Model', 'Passengers'];
-  buscarApi(url, headers);
+  buscarNaApi(url, headers);
 });
