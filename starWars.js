@@ -1,5 +1,5 @@
 
-function atualizarTable(data, headers) {
+function atualizarTable(data, menu) {
   const CorpoTable = document.querySelector('#data-table tbody');
   const tableHeader = document.querySelector('#data-table thead tr');
   
@@ -12,7 +12,7 @@ function atualizarTable(data, headers) {
     const cell = row.insertCell();
     cell.textContent = 'Nenhum resultado encontrado.';
   } else {
-    headers.forEach(header => {
+    menu.forEach(header => {
       const th = document.createElement('th');
       th.textContent = header;
       tableHeader.appendChild(th);
@@ -21,38 +21,38 @@ function atualizarTable(data, headers) {
     data.forEach(item => {
       const row = CorpoTable.insertRow();
       
-      headers.forEach(header => {
+      menu.forEach(header => {
         const cell = row.insertCell();
         cell.textContent = item[header.toLowerCase()];
       });
   
       row.addEventListener('click', function() {
-        showDetailsModal(item);
+        mostrarDetalhes(item);
       });
     });
   }
 }
 
-function showDetailsModal(item) {
+function mostrarDetalhes(item) {
   const modaltitulo = document.getElementById('details-modal-label');
   const modalContent = document.getElementById('details-content');
 
   modaltitulo.textContent = item.name || item.title; 
   modalContent.innerHTML = ''; 
 
-  const detailsList = document.createElement('ul');
+  const listardetalhes = document.createElement('ul');
   Object.entries(item).forEach(([key, value]) => {
     const listItem = document.createElement('li');
     listItem.innerHTML = `<strong>${key}:</strong> ${value}`;
-    detailsList.appendChild(listItem);
+    listardetalhes.appendChild(listItem);
   });
 
-  modalContent.appendChild(detailsList);
+  modalContent.appendChild(listardetalhes);
 
   $('#details-modal').modal('show'); 
 }
 
-function fetchData(url, headers) {
+function buscarApi(url, headers) {
   fetch(url)
     .then(response => response.json())
     .then(data => {
@@ -66,35 +66,35 @@ function fetchData(url, headers) {
 document.addEventListener('DOMContentLoaded', function() {
   const url = 'https://swapi.dev/api/films/';
   const headers = ['Title', 'Director', 'Producer'];
-  fetchData(url, headers);
+  buscarApi(url, headers);
 });
 
 document.getElementById('people-link').addEventListener('click', function() {
   const url = 'https://swapi.dev/api/people/';
   const headers = ['Name', 'Height', 'Mass'];
-  fetchData(url, headers);
+  buscarApi(url, headers);
 });
 
 document.getElementById('planets-link').addEventListener('click', function() {
   const url = 'https://swapi.dev/api/planets/';
   const headers = ['Name', 'Population', 'Gravity'];
-  fetchData(url, headers);
+  buscarApi(url, headers);
 });
 
 document.getElementById('species-link').addEventListener('click', function() {
   const url = 'https://swapi.dev/api/species/';
   const headers = ['Name', 'Classification', 'Designation'];
-  fetchData(url, headers);
+  buscarApi(url, headers);
 });
 
 document.getElementById('starships-link').addEventListener('click', function() {
   const url = 'https://swapi.dev/api/starships/';
   const headers = ['Name', 'Model', 'Passengers'];
-  fetchData(url, headers);
+  buscarApi(url, headers);
 });
 
 document.getElementById('vehicles-link').addEventListener('click', function() {
   const url = 'https://swapi.dev/api/vehicles/';
   const headers = ['Name', 'Model', 'Passengers'];
-  fetchData(url, headers);
+  buscarApi(url, headers);
 });
