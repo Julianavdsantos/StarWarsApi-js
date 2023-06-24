@@ -24,6 +24,7 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('films-link').addEventListener('click', function() {
       const url = 'https://swapi.dev/api/films/';
       const headers = ['Title', 'Director', 'Producer'];
+     document.getElementById('loading-indicator').style.display = 'block';
       apiService.buscarNaApi(url, headers);
 
      
@@ -33,6 +34,7 @@ document.addEventListener('DOMContentLoaded', function() {
         debugger
       const url = 'https://swapi.dev/api/people/';
       const headers = ['Name', 'Height', 'Mass'];
+     document.getElementById('loading-indicator').style.display = 'block';
       apiService.buscarNaApi(url, headers);
 
     });
@@ -40,6 +42,7 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('planets-link').addEventListener('click', function() {
       const url = 'https://swapi.dev/api/planets/';
       const headers = ['Name', 'Population', 'Gravity'];
+     document.getElementById('loading-indicator').style.display = 'block';
       apiService.buscarNaApi(url, headers);
 
     });
@@ -47,6 +50,7 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('species-link').addEventListener('click', function() {
       const url = 'https://swapi.dev/api/species/';
       const headers = ['Name', 'Classification', 'Designation'];
+     document.getElementById('loading-indicator').style.display = 'block';
       apiService.buscarNaApi(url, headers);
 
     });
@@ -54,6 +58,7 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('starships-link').addEventListener('click', function() {
       const url = 'https://swapi.dev/api/starships/';
       const headers = ['Name', 'Model', 'Passengers'];
+     document.getElementById('loading-indicator').style.display = 'block';
       apiService.buscarNaApi(url, headers);
 
     });
@@ -61,6 +66,7 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('vehicles-link').addEventListener('click', function() {
       const url = 'https://swapi.dev/api/vehicles/';
       const headers = ['Name', 'Model', 'Passengers'];
+     document.getElementById('loading-indicator').style.display = 'block';
       apiService.buscarNaApi(url, headers);
 
     });
