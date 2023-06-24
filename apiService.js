@@ -8,6 +8,7 @@ const apiService = {
         fetch(url)
           .then(response => response.json())
           .then(data => {
+           document.getElementById('loading-indicator').style.display = 'none';
             tabelaService.atualizarTable(data.results, headers);
             
           })
